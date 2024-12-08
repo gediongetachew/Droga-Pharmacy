@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+/* <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet"> */
+#root {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+#root-body {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#root-body-hidden {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.elipces_shadow {
+  clip-path: ellipse(50% 15% at 50% 51%);
+}
+
+.carousel-container {
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  animation: scrollCarousel 60s infinite linear;
+}
+
+.carouselReverse {
+  display: flex;
+  animation: scrollCarouselReverse 60s infinite linear;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+}
+
+.carousel-item {
+  margin-right: 1rem;
+}
+
+.text-body {
+  margin-bottom: 1rem; /* Adjust the value as needed */
+}
+
+@keyframes scrollCarousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-600%);
+  }
+}
+
+@keyframes scrollCarouselReverse {
+  0% {
+    transform: translateX(-600%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.carouselEmployees {
+  display: flex;
+  animation: scrollCarouselEmployee 20s infinite linear;
+}
+
+.carouselEmployeeReverse {
+  display: flex;
+  animation: scrollCarouselEmployeeReverse 20s infinite linear;
+}
+
+.carouselEmployees--slow {
+  display: flex;
+  animation: scrollCarouselEmployee--slow 5s infinite linear;
+}
+
+.carouselEmployeeReverse--slow {
+  display: flex;
+  animation: scrollCarouselEmployeeReverse--slow 5s infinite linear;
+}
+
+@keyframes scrollCarouselEmployee--slow {
+  0% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scrollCarouselEmployeeReverse--slow {
+  0% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scrollCarouselEmployee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-250%);
+  }
+}
+
+@keyframes scrollCarouselEmployeeReverse {
+  0% {
+    transform: translateX(-250%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.feeds_scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.feeds_scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scroll-tab-container {
+  overflow-x: auto;
+  scrollbar-color: transparent transparent;
+  user-select: none;
+  cursor: url("./assets/images/cola_placeholder.svg"), auto;
+}
+.scroll-container {
+  scroll-behavior: smooth;
+}
+
+.scroll-tab-container::-webkit-scrollbar {
+  height: 8px;
+  scrollbar-color: transparent;
+}
+
+.chatscroll {
+  scrollbar-color: #555555 #000;carousel-container
+}
+
+.chatscroll::-webkit-scrollbar {
+  scrollbar-color: #555555 #000;
+  scrollbar-width: thin;
+}
+
+.chatscroll::-webkit-scrollbar-thumb {
+  background-color: #555555;
+  width: 8px; /* Adjust the width as needed */
+}
+
+.chatscroll::-webkit-scrollbar-thumb:hover {
+  background-color: #888888;
+}
+
+.chatscroll::-webkit-scrollbar-track {
+  background-color: #000000;
+}
