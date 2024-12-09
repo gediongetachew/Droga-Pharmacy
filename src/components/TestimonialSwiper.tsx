@@ -16,18 +16,20 @@ const swiperStyles = `
   }
 
   .swiper-pagination-bullet {
-    width: 20px;
-    height: 3px;
-    background: #ccc;
+    width: 8px;
+    height: 8px;
+    background: #D9D9D9;
     opacity: 1;
     margin: 0 5px;
-    border-radius: 2px;
+    border-radius: 20px;
     transition: all 0.3s ease;
   }
   
   .swiper-pagination-bullet-active {
-    background: #000;
+     background: #6C6C6C;
     width: 30px;
+    border-radius: 20px;
+
   }
 
   @media (min-width: 768px) {
@@ -171,7 +173,7 @@ export default function TestimonialSwiper() {
                   display: "flex",
                   flexDirection: "column",
                   transition: "all 0.3s ease-in-out",
-                  boxShadow: "4px 4px 40px rgba(0, 0, 0, 0.25)",
+                  boxShadow: "4px 4px 40px rgba(0, 0, 0, 0.1)",
                   "&:hover": {
                     transform: "translateY(-5px)",
                     boxShadow: "0px 8px 30px rgba(0, 0, 0, 0.2)",

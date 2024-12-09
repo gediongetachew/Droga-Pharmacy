@@ -8,7 +8,6 @@ import Image from "next/image";
 
 import { useState } from "react";
 import { useTheme, useMediaQuery } from "@mui/material";
-import Pagination from "@mui/material/Pagination";
 
 export default function Medicine() {
   const theme = useTheme();
@@ -230,16 +229,23 @@ export default function Medicine() {
                   ))}
                 </Box>
               ))}
-              {isSmallScreen &&  (
-                <Pagination
-                count={totalMedicinePages}
-                page={page}
-                onChange={handlePageChange}
-                color="standard"
-                hidePrevButton
-                hideNextButton
-                sx={{ marginTop: 2 }}
-              />
+              {isSmallScreen && (
+                <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 2 }}>
+                  {Array.from({ length: totalMedicinePages }, (_, index) => (
+                    <Box
+                      key={index}
+                      sx={{
+                        width: index + 1 === page ? '40px' : '9px', // Active page as a line
+                        height: '8px',
+                        borderRadius: '4px',
+                        backgroundColor: index + 1 === page ? '#6C6C6C' : '#B4B4B4', // Active color
+                        margin: '0 4px',
+                        transition: 'width 0.3s',
+                      }}
+                      onClick={() => setPage(index + 1)} // Change page on click
+                    />
+                  ))}
+                </Box>
               )}
             </Box>
           </Grid>
@@ -390,15 +396,22 @@ export default function Medicine() {
                 </Box>
               ))}
               {isSmallScreen && (
-                <Pagination
-                  count={totalSupplyPages}
-                  page={supplyPage}
-                  onChange={handleSupplyPageChange}
-                  color="standard"
-                  hidePrevButton
-                  hideNextButton
-                  sx={{ marginTop: 2 }}
-                />
+                <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 2 }}>
+                  {Array.from({ length: totalSupplyPages }, (_, index) => (
+                    <Box
+                      key={index}
+                      sx={{
+                        width: index + 1 === supplyPage ? '40px' : '9px', // Active page as a line
+                        height: '8px',
+                        borderRadius: '4px',
+                        backgroundColor: index + 1 === supplyPage ? '#6C6C6C' : '#B4B4B4', // Active color
+                        margin: '0 4px',
+                        transition: 'width 0.3s',
+                      }}
+                      onClick={() => setSupplyPage(index + 1)} // Change page on click
+                    />
+                  ))}
+                </Box>
               )}
             </Box>
           </Grid>

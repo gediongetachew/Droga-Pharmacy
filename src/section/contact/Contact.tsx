@@ -15,7 +15,12 @@ import {
   IconCircleCheck,
   IconExclamationCircle,
 } from "@tabler/icons-react";
-import { Button, CircularProgress, FormControlLabel } from "@mui/material";
+import {
+  Button,
+  CircularProgress,
+  FormControlLabel,
+  TextField,
+} from "@mui/material";
 import { subscribe } from "diagnostics_channel";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -28,7 +33,8 @@ interface messageProps {
 const Contact = () => {
   const [playVideo, setPlayVideo] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [checked, setChecked] = React.useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
   const videoRef = useRef<HTMLDivElement>(null);
 
   const validationSchema = Yup.object({
@@ -41,17 +47,12 @@ const Contact = () => {
     message: Yup.string().required("Message is required"),
   });
 
-  const [submitting, setSubmitting] = useState(false);
   const [Message, setMessage] = useState<messageProps>({
     type: "",
     text: "",
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-  };
-
-  const handleFormSubmission = (values: any) => {
+  const handleFormSubmission = (values: any, resetForm: () => void) => {
     setSubmitting(true);
 
     const header = {
@@ -61,6 +62,7 @@ const Contact = () => {
 
     const data = {
       name: values.fullName,
+      subscribe: values.subscribe,
       ...values,
     };
     console.log("Data being sent:", data);
@@ -71,13 +73,14 @@ const Contact = () => {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log('the response is ', response);
+        console.log("the response is ", response);
         if (response.id) {
           setMessage((prev) => ({
             ...prev,
             type: "success",
             text: "Submitted successfully!",
           }));
+          resetForm();
         }
       })
       .catch((error) => {
@@ -97,9 +100,9 @@ const Contact = () => {
   };
 
   // Form submission
-  const onSubmit = async (values: any) => {
+  const onSubmit = async (values: any, { resetForm }: { resetForm: () => void }) => {
     console.log("Form submitted with values:", values);
-    handleFormSubmission(values);
+    handleFormSubmission(values, resetForm);
   };
 
   const handlePlayVideo = () => {
@@ -346,11 +349,12 @@ const Contact = () => {
                   position: "absolute",
                   top: "0%",
                   right: "0%",
-                  width: { xs: "50%", md: "40%" },
-                  height: { xs: "20%", md: "10%" },
+                  width: { xs: "50%", md: "40%", xl: "40%" },
+                  height: { xs: "20%", md: "10%", xl: "9%" },
                   zIndex: 3,
                   background: "white",
                   borderBottomLeftRadius: "20px",
+                  overflow: "hidden",
                 }}
               >
                 <img
@@ -374,9 +378,9 @@ const Contact = () => {
           background: "#D1D1D1",
           marginTop: { xs: 0, md: 4 },
           marginX: { xs: 2, md: 13 },
-        }}  
+        }}
       ></Box>
-      <Grid item xs={12} sx={{ padding: {xs:2, md:2, lg:7} }}>
+      <Grid item xs={12} sx={{ padding: { xs: 2, md: 2, lg: 7 } }}>
         <Grid
           container
           sx={{
@@ -404,8 +408,8 @@ const Contact = () => {
               sx={{
                 color: "#878787",
                 fontFamily: "Segoe Ui",
-                fontSize: { xs: 10, md: 20, lg:25},
-                padding: {xs:0, md:5, lg:5},
+                fontSize: { xs: 10, md: 20, lg: 25 },
+                padding: { xs: 0, md: 5, lg: 5 },
                 marginBottom: { xs: 0, md: 8 },
               }}
             >
@@ -421,12 +425,12 @@ const Contact = () => {
             <Box
               sx={{
                 width: "100%",
-                paddingX: { xs: 0, sm: 3, md: 3, lg:8 },
+                paddingX: { xs: 0, sm: 3, md: 3, lg: 8 },
                 paddingTop: { xs: 3, sm: 3, md: 5 },
 
                 borderRadius: 4,
-                backgroundColor: "#FFFFFF",
-                color: "#FFFFFF",
+
+                color: "red",
                 textAlign: "left",
               }}
             >
@@ -452,7 +456,6 @@ const Contact = () => {
                             border: "1px solid #CDCDCD",
                             color: "#5F5F5F",
                             background: "transparent",
-
                             outline: "none",
                           }}
                         />
@@ -551,25 +554,21 @@ const Contact = () => {
                         display: "flex",
                         alignItems: "center",
                         marginTop: 2,
-                        background: "transpare",
+                        background: "transparent",
                         color: "black",
                       }}
                     >
                       <FormControlLabel
                         control={
-                          <Checkbox
-                            checked={checked}
-                            onChange={handleChange}
+                          <Field
+                            name="subscribe"
+                            type="checkbox"
+                            as={Checkbox}
                             sx={{
                               borderRadius: "100%",
                               color: "black",
                               "&.Mui-checked": {
                                 color: "black",
-                              },
-                              "&.MuiSvgIcon-root": {
-                                backgroundColor: checked
-                                  ? "#FCEE23"
-                                  : "transparent",
                               },
                             }}
                           />
@@ -584,7 +583,6 @@ const Contact = () => {
                             Subscribe to our Newsletter for all latest News
                           </Typography>
                         }
-                        sx={{ marginBottom: 2 }}
                       />
                     </Box>
 
@@ -614,7 +612,7 @@ const Contact = () => {
                           variant="contained"
                           sx={{
                             mb: 2,
-                            color: "#FCEE23",
+                            color: submitting ? "gray" : "#FCEE23",
                             backgroundColor: "#FCEE23",
                             minWidth: "100px",
                             borderRadius: "45px",

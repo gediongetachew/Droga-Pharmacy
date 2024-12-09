@@ -9,7 +9,6 @@ const Values = () => {
         justifyContent: "space-between",
         gap: 4,
         padding: { xs: 1, md: 8 },
-
         background: "#F5F5F5",
       }}
     >
@@ -17,7 +16,8 @@ const Values = () => {
         sx={{
           background: "white",
 
-          padding: { xs: 0, md: 5 },
+          paddingX: { xs: 0, md: 5 },
+          paddingY: { xs: 0, md: 0 },
           borderRadius: "44px",
           display: "flex",
           flexDirection: "column",
@@ -73,8 +73,9 @@ const Values = () => {
               },
               gap: index % 2 === 0 ? 5 : 5,
               width: "100%",
-
+             height:'60%',
               padding: { xs: 1, md: 2 },
+            
             }}
           >
             {/* Text Content */}
@@ -117,7 +118,7 @@ const Values = () => {
                 padding: { md: 2 },
                 "& img": {
                   width: "100%",
-                  height: { xs: "35%", md: "60%" },
+                  height: { xs: "35%", sm:'20%', md: "60%", lg:'60%' },
                   objectFit: "cover",
                   borderRadius: "24px",
                 },

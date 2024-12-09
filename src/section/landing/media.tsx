@@ -20,7 +20,7 @@ const CustomPagination = styled(Pagination)(({ theme }) => ({
   "& .MuiPaginationItem-page": {
     "&.Mui-selected": {
       backgroundColor: "#000",
-      color: "#fff",
+      color: "#FCEE23",
       "&:hover": {
         backgroundColor: "#000",
       },
@@ -31,7 +31,7 @@ const CustomPagination = styled(Pagination)(({ theme }) => ({
   },
   "& .MuiPaginationItem-previousNext": {
     backgroundColor: "#000",
-    color: "#fff",
+    color: "#FCEE23",
     "&:hover": {
       backgroundColor: "#000",
     },
@@ -84,7 +84,7 @@ export default function Media() {
       sx={{
         background: "white",
         marginTop: 0,
-        height:  "150vh",
+        height: "150vh",
       }}
     >
       <Grid
@@ -93,6 +93,7 @@ export default function Media() {
         sx={{
           display: "flex",
           justifyContent: "space-between",
+          alignItems: "center",
           marginX: { xs: 2, md: 10 },
           marginTop: { xs: 2, md: 10 },
         }}
@@ -110,11 +111,11 @@ export default function Media() {
 
         <Typography
           sx={{
-            fontSize: { xs: "10px", sm: "15px", md:'20px' },
+            fontSize: { xs: "10px", sm: "15px", md: "20px" },
             fontWeight: 400,
             fontFamily: "Plus Jakarta Sans",
             color: "#6D6D6D",
-            width: {xs:"60%", sm:"50%", md:'40%'},
+            width: { xs: "60%", sm: "50%", md: "40%" },
           }}
         >
           Lorem ipsum dolor sit amet consectetur. Montes habitant enim a
@@ -128,7 +129,7 @@ export default function Media() {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          gap: 2,
+          gap: { xs: 1, md: 2 },
           justifyContent: "space-between",
           marginX: { xs: 2, md: 10 },
         }}
@@ -140,7 +141,7 @@ export default function Media() {
               width: { xs: "100%", md: "48%" },
               height: {
                 xs: "300px",
-                sm:'500px',
+                sm: "500px",
                 md: item.id === 2 ? "500px" : "450px",
                 lg: item.id === 2 ? "600px" : "550px",
                 xl: item.id === 2 ? "530px" : "480px",
@@ -151,7 +152,7 @@ export default function Media() {
 
               background: "white",
               marginTop: {
-                xs: 2,
+                xs: 0,
                 md: item.id === 3 ? -3 : 2,
               },
               zIndex: 1,
@@ -165,7 +166,7 @@ export default function Media() {
                 width: "98%",
                 height: {
                   xs: "56%",
-                  sm:'58%',
+                  sm: "58%",
                   md: item.id === 2 ? "70%" : "65%",
                 },
                 zIndex: 2,
@@ -186,22 +187,22 @@ export default function Media() {
 
             <Box
               sx={{
-                position:'absolute',
-                bottom:0,
-                left:0,
-                width:'100%',
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                width: "100%",
                 height: {
                   xs: "38%",
-                  sm:'38%',
+                  sm: "38%",
                   md: item.id === 2 ? "26%" : "32%",
                 },
-                zIndex:2,
+                zIndex: 2,
                 paddingX: 2,
               }}
             >
               <Typography
                 sx={{
-                  fontSize: { xs: "15px", sm: "30px" , md:'20px', lg:'24px'},
+                  fontSize: { xs: "15px", sm: "30px", md: "20px", lg: "24px" },
                   fontWeight: 700,
                   fontFamily: "Red Hat Display",
                   color: "black",
@@ -211,11 +212,11 @@ export default function Media() {
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: "13px", sm: "20px",md:'15px', lg:'20px'},
+                  fontSize: { xs: "13px", sm: "20px", md: "15px", lg: "20px" },
                   fontWeight: 400,
                   fontFamily: "Red Hat Display",
                   color: "#6D6D6D",
-                  marginTop: {xs:1, md:2},
+                  marginTop: { xs: 1, md: 2 },
                 }}
               >
                 {item.description}
@@ -225,10 +226,14 @@ export default function Media() {
             <CallMadeIcon
               sx={{
                 position: "absolute",
-                top: {xs:item.id === 2 ? "58%" : "58%",sm:item.id === 2 ? "62%" : "62%", md:item.id === 2 ? "75%" : "70%"},
+                top: {
+                  xs: item.id === 2 ? "58%" : "58%",
+                  sm: item.id === 2 ? "62%" : "62%",
+                  md: item.id === 2 ? "75%" : "70%",
+                },
                 right: "3%",
                 color: "black",
-                scale: { xs: 0.8,sm:1, md: 1.2 },
+                scale: { xs: 0.8, sm: 1, md: 1.2 },
               }}
             />
           </Box>
@@ -242,7 +247,7 @@ export default function Media() {
           display: "flex",
           justifyContent: "start",
           marginLeft: { xs: 0, md: 10 },
-          marginY: {xs:2, md:4},
+          marginY: { xs: 2, md: 4 },
         }}
       >
         <CustomPagination

@@ -9,7 +9,7 @@ export default function whatGuidesUs() {
     <Grid container sx={{ 
       width: '100%', 
       background: 'white',
-      padding: { xs: 2, sm: 4, lg: 4 },
+      
       paddingLeft:{xs:0, lg:10}
     }}>
       <Grid item xs={12} sx={{
@@ -17,7 +17,8 @@ export default function whatGuidesUs() {
         flexDirection: { xs: 'column', lg: 'row' },
         justifyContent: 'space-between',
         gap: { xs: 3, lg: 5 },
-        marginBottom: { xs: 4, lg: 5 }
+        marginBottom: { xs: 4, lg: 5 },
+        margin: { xs: 2, sm: 4, lg: 4 },
       }}>
         <Typography sx={{
           fontSize: { xs: '24px', sm: '30px',md:'40px', lg: '45px' }, 
@@ -44,7 +45,8 @@ export default function whatGuidesUs() {
         display: 'flex', 
         flexDirection: { xs: 'column', lg: 'row' },
         marginBottom: { xs: 3, lg: 8,xl:9 },
-        gap: { xs: 3, lg: 10,xl:10 }
+        gap: { xs: 3, lg: 10,xl:10 },
+        margin: { xs: 2, sm: 4, md:1, lg:0 },
       }}>
         <Box sx={{
           display: 'flex',
@@ -111,7 +113,8 @@ export default function whatGuidesUs() {
         flexDirection: { xs: 'column', lg: 'row' },
         marginLeft: { xs: 0, lg: 10 },
         marginBottom: { xs: 3, lg: 5 },
-        gap: { xs: 3,lg: 10 }
+        gap: { xs: 3,lg: 10 },
+        margin: { xs: 2, sm: 4, md:1, lg:4 },
       }}>
         
         <Box sx={{
