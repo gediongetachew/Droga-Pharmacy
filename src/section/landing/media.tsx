@@ -164,8 +164,8 @@ export default function Media() {
                 left: "1%",
                 width: "98%",
                 height: {
-                  xs: "50%",
-                  sm:'60%',
+                  xs: "56%",
+                  sm:'58%',
                   md: item.id === 2 ? "70%" : "65%",
                 },
                 zIndex: 2,
@@ -186,19 +186,22 @@ export default function Media() {
 
             <Box
               sx={{
-                marginTop: {
-                  xs: "48%",
-                  sm:'45%',
-                  md: item.id === 2 ? "95%" : "80%",
-                  lg: item.id === 2 ? "69%" : "60%",
-                  xl: item.id === 2 ? "48%" : "40%",
+                position:'absolute',
+                bottom:0,
+                left:0,
+                width:'100%',
+                height: {
+                  xs: "38%",
+                  sm:'38%',
+                  md: item.id === 2 ? "26%" : "32%",
                 },
+                zIndex:2,
                 paddingX: 2,
               }}
             >
               <Typography
                 sx={{
-                  fontSize: { xs: "15px", sm: "25px" , md:'20px', lg:'24px'},
+                  fontSize: { xs: "15px", sm: "30px" , md:'20px', lg:'24px'},
                   fontWeight: 700,
                   fontFamily: "Red Hat Display",
                   color: "black",
@@ -208,11 +211,11 @@ export default function Media() {
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: "13px", sm: "15px",md:'15px', lg:'20px'},
+                  fontSize: { xs: "13px", sm: "20px",md:'15px', lg:'20px'},
                   fontWeight: 400,
                   fontFamily: "Red Hat Display",
                   color: "#6D6D6D",
-                  marginTop: 2,
+                  marginTop: {xs:1, md:2},
                 }}
               >
                 {item.description}
