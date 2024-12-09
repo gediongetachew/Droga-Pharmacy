@@ -225,10 +225,10 @@ export default function Media() {
             <CallMadeIcon
               sx={{
                 position: "absolute",
-                top: {xs:item.id === 2 ? "55%" : "55%", md:item.id === 2 ? "75%" : "70%"},
+                top: {xs:item.id === 2 ? "58%" : "58%",sm:item.id === 2 ? "62%" : "62%", md:item.id === 2 ? "75%" : "70%"},
                 right: "3%",
                 color: "black",
-                scale: { xs: 0.8, md: 1 },
+                scale: { xs: 0.8,sm:1, md: 1.2 },
               }}
             />
           </Box>
